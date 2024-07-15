@@ -67,11 +67,11 @@ def make_h5(h5_filename="tick_data.h5"):
 if __name__ == "__main__":
     bucket_name = input("Enter your S3 bucket name: ")
     s3_file_keys = {
-        "Wheat": "path/to/wheat.csv",
-        "Corn": "path/to/corn.csv",
-        "Soy": "path/to/soy.csv",
-        "SoyMeal": "path/to/soymeal.csv",
-        "BeanOil": "path/to/beanoil.csv",
+        "Wheat": "path/to/WC.csv",
+        "Corn": "path/to/CN.csv",
+        "Soy": "path/to/SY.csv",
+        "SoyMeal": "path/to/SM.csv",
+        "BeanOil": "path/to/BO.csv",
     }
 
     h5file = make_h5()
