@@ -1,5 +1,5 @@
 import argparse
-import os
+from io import StringIO
 
 import boto3
 import numpy as np
@@ -21,27 +21,23 @@ class H5TickType(tables.IsDescription):
     last_v = tables.Int64Col()
 
 
-def download_from_s3(
-    bucket_name, s3_file_key, local_file_path, region_name="us-east-2"
-):
-    """Download file from S3."""
+def read_csv_from_s3(bucket_name, s3_file_key, region_name="us-east-2"):
+    """Read CSV file directly from S3."""
     s3 = boto3.client("s3", region_name=region_name)
     try:
-        s3.download_file(bucket_name, s3_file_key, local_file_path)
-        print(f"Downloaded {s3_file_key} from {bucket_name} to {local_file_path}")
+        response = s3.get_object(Bucket=bucket_name, Key=s3_file_key)
+        csv_string = response["Body"].read().decode("utf-8")
+        data = pd.read_csv(StringIO(csv_string))
+        print(f"Read {s3_file_key} from {bucket_name} successfully.")
+        return data
     except Exception as e:
-        print(f"Error downloading {s3_file_key} from {bucket_name}: {e}")
+        print(f"Error reading {s3_file_key} from {bucket_name}: {e}")
+        return None
 
 
-def process_csv_to_hdf5(csv_file, h5file, h5path, sym):
-    """Read CSV file, process lines, and insert into PyTables."""
-    if not os.path.exists(csv_file):
-        print(f"Error: {csv_file} does not exist.")
-        return
+def process_csv_to_hdf5(data, h5file, h5path, sym):
+    """Process data and insert into PyTables."""
     try:
-        data = pd.read_csv(csv_file)
-        print(f"Read CSV file {csv_file} successfully.")
-
         h5table = h5file.create_table(h5path, sym, H5TickType, f"{sym} table")
         row = h5table.row
         for row_data in data.itertuples(index=False):
@@ -53,9 +49,9 @@ def process_csv_to_hdf5(csv_file, h5file, h5path, sym):
             row["last_v"] = row_data.last_v
             row.append()
         h5file.flush()
-        print(f"Processed and inserted data from {csv_file} into HDF5 file.")
+        print(f"Processed and inserted data for {sym} into HDF5 file.")
     except Exception as e:
-        print(f"Error processing {csv_file}: {e}")
+        print(f"Error processing data for {sym}: {e}")
 
 
 def make_h5(sym, h5_filename=None):
@@ -92,21 +88,18 @@ if __name__ == "__main__":
     }
 
     for sym, s3_file_key in s3_file_keys.items():
-        local_file_path = f"{sym}.csv"
-        print(f"Attempting to download {s3_file_key} from bucket {bucket_name}")
-        download_from_s3(bucket_name, s3_file_key, local_file_path, region_name)
+        print(f"Attempting to read {s3_file_key} from bucket {bucket_name}")
+        data = read_csv_from_s3(bucket_name, s3_file_key, region_name)
 
-        if os.path.exists(local_file_path):
+        if data is not None:
             h5_filename = f"tick_data_{sym}.h5"
             h5file = make_h5(sym, h5_filename)
 
-            process_csv_to_hdf5(local_file_path, h5file, "/", sym)
-            os.remove(local_file_path)
-            print(f"Removed local file {local_file_path} after processing.")
+            process_csv_to_hdf5(data, h5file, "/", sym)
 
             h5file.close()
             print(f"Closed HDF5 file {h5_filename}.")
         else:
             print(
-                f"Skipping processing for {local_file_path} as it was not downloaded."
+                f"Skipping processing for {sym} as the data was not read successfully."
             )
