@@ -1,12 +1,17 @@
 import argparse
+import os
 from io import StringIO
 
 import boto3
 import numpy as np
 import pandas as pd
 import tables
+from dotenv import load_dotenv
 
 from shared_types import tick_type
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 class H5TickType(tables.IsDescription):
@@ -37,17 +42,48 @@ def read_csv_from_s3(bucket_name, s3_file_key, region_name="us-east-2"):
 
 def process_csv_to_hdf5(data, h5file, h5path, sym):
     """Process data and insert into PyTables."""
+    required_columns = ["date", "time", "last_p", "last_v"]
+
+    # Rename columns to match expected names
+    data.rename(
+        columns={"Date": "date", "Time": "time", "Price": "last_p", "Volume": "last_v"},
+        inplace=True,
+    )
+
+    # Check if all required columns are present in the DataFrame
+    if not all(column in data.columns for column in required_columns):
+        print(
+            f"Error: One or more required columns are missing in the CSV file for {sym}."
+        )
+        print(f"Required columns: {required_columns}")
+        print(f"Available columns: {list(data.columns)}")
+        return
+
     try:
         h5table = h5file.create_table(h5path, sym, H5TickType, f"{sym} table")
         row = h5table.row
+
+        # Combine date and time columns into a single datetime column
+        data["datetime"] = pd.to_datetime(
+            data["date"] + " " + data["time"], errors="coerce"
+        )
+
+        # Check for any parsing errors
+        if data["datetime"].isnull().any():
+            print(f"Error: Some date and time values could not be parsed for {sym}.")
+            print(data[data["datetime"].isnull()])
+            return
+
         for row_data in data.itertuples(index=False):
-            date = np.datetime64(row_data.date + " " + row_data.time)
             row["symbol"] = sym
-            row["date"] = date.astype("M8[D]").astype(np.int64)
-            row["time"] = (date - date.astype("M8[D]")).astype(np.int64)
+            row["date"] = row_data.datetime.date().toordinal()
+            row["time"] = (
+                row_data.datetime - pd.Timestamp(row_data.datetime.date())
+            ).total_seconds() * 1e9
             row["last_p"] = row_data.last_p
             row["last_v"] = row_data.last_v
             row.append()
+
         h5file.flush()
         print(f"Processed and inserted data for {sym} into HDF5 file.")
     except Exception as e:
