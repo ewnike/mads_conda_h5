@@ -48,7 +48,7 @@ def process_csv_to_hdf5(csv_file, h5file, h5path, sym):
             date = np.datetime64(row_data.date + " " + row_data.time)
             row["symbol"] = sym
             row["date"] = date.astype("M8[D]").astype(np.int64)
-            row["time"] = date - date.astype("M8[D]").astype(np.int64)
+            row["time"] = (date - date.astype("M8[D]")).astype(np.int64)
             row["last_p"] = row_data.last_p
             row["last_v"] = row_data.last_v
             row.append()
