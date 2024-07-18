@@ -101,6 +101,7 @@ dependencies:
   - pytables=3.9.2
   - python=3.12.3
   - python-dateutil=2.9.0
+  - python-dotenv=1.0.1
   - python-tzdata=2024.1
   - python_abi=3.12
   - pytz=2024.1

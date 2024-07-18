@@ -1,137 +1,55 @@
-# This file may be used to create an environment using:
-# $ conda create --name <env> --file <this file>
-# platform: win-64
-blosc=1.21.6=h85f69ea_0
-boto3=1.34.144=pyhd8ed1ab_0
-botocore=1.34.144=pyge310_1234567_0
-brotli=1.1.0=hcfcfb64_1
-brotli-bin=1.1.0=hcfcfb64_1
-brotli-python=1.1.0=py312h53d5487_1
-bzip2=1.0.8=h2466b09_7
-c-blosc2=2.15.0=hb461149_1
-ca-certificates=2024.7.4=h56e8100_0
-cached-property=1.5.2=hd8ed1ab_1
-cached_property=1.5.2=pyha770c72_1
-certifi=2024.7.4=pyhd8ed1ab_0
-cffi=1.16.0=py312he70551f_0
-charset-normalizer=3.3.2=pyhd8ed1ab_0
-contourpy=1.2.1=py312h0d7def4_0
-cycler=0.12.1=pyhd8ed1ab_0
-fonttools=4.53.1=py312h4389bb4_0
-freetype=2.12.1=hdaf720e_2
-glib=2.80.3=h7025463_1
-glib-tools=2.80.3=h4394cf3_1
-gst-plugins-base=1.24.5=hb0a98b8_0
-gstreamer=1.24.5=h5006eae_0
-h2=4.1.0=pyhd8ed1ab_0
-h5py=3.11.0=nompi_py312ha036244_102
-hdf5=1.14.3=nompi_h2b43c12_105
-hpack=4.0.0=pyh9f0ad1d_0
-hyperframe=6.0.1=pyhd8ed1ab_0
-icu=73.2=h63175ca_0
-idna=3.7=pyhd8ed1ab_0
-intel-openmp=2023.2.0=h57928b3_50497
-jmespath=1.0.1=pyhd8ed1ab_0
-joblib=1.4.2=pyhd8ed1ab_0
-kiwisolver=1.4.5=py312h0d7def4_1
-krb5=1.21.3=hdf4eb48_0
-lcms2=2.16=h67d730c_0
-lerc=4.0.0=h63175ca_0
-libaec=1.1.3=h63175ca_0
-libblas=3.9.0=20_win64_mkl
-libbrotlicommon=1.1.0=hcfcfb64_1
-libbrotlidec=1.1.0=hcfcfb64_1
-libbrotlienc=1.1.0=hcfcfb64_1
-libcblas=3.9.0=20_win64_mkl
-libclang13=18.1.8=default_ha5278ca_0
-libcurl=8.8.0=hd5e4a3a_1
-libdeflate=1.20=hcfcfb64_0
-libexpat=2.6.2=h63175ca_0
-libffi=3.4.2=h8ffe710_5
-libglib=2.80.3=h7025463_1
-libhwloc=2.11.1=default_h8125262_1000
-libiconv=1.17=hcfcfb64_2
-libintl=0.22.5=h5728263_2
-libintl-devel=0.22.5=h5728263_2
-libjpeg-turbo=3.0.0=hcfcfb64_1
-liblapack=3.9.0=20_win64_mkl
-libogg=1.3.5=h2466b09_0
-libpng=1.6.43=h19919ed_0
-libsqlite=3.46.0=h2466b09_0
-libssh2=1.11.0=h7dfc565_0
-libtiff=4.6.0=hddb2be6_3
-libvorbis=1.3.7=h0e60522_0
-libwebp-base=1.4.0=hcfcfb64_0
-libxcb=1.16=hcd874cb_0
-libxml2=2.12.7=h0f24e4e_3
-libzlib=1.3.1=h2466b09_1
-lz4-c=1.9.4=hcfcfb64_0
-m2w64-gcc-libgfortran=5.3.0=6
-m2w64-gcc-libs=5.3.0=7
-m2w64-gcc-libs-core=5.3.0=7
-m2w64-gmp=6.1.0=2
-m2w64-libwinpthread-git=5.0.0.4634.697f757=2
-matplotlib=3.9.1=py312h2e8e312_0
-matplotlib-base=3.9.1=py312h90004f6_0
-mkl=2023.2.0=h6a75c08_50497
-msys2-conda-epoch=20160418=1
-munkres=1.1.4=pyh9f0ad1d_0
-numexpr=2.10.0=mkl_py312h295738f_0
-numpy=1.26.4=py312h8753938_0
-openjpeg=2.5.2=h3d672ee_0
-openssl=3.3.1=h2466b09_1
-packaging=24.1=pyhd8ed1ab_0
-pandas=2.2.2=py312h72972c8_1
-patsy=0.5.6=pyhd8ed1ab_0
-pcre2=10.44=h3d7b363_0
-pillow=10.4.0=py312h381445a_0
-pip=24.0=pyhd8ed1ab_0
-ply=3.11=pyhd8ed1ab_2
-pthread-stubs=0.4=hcd874cb_1001
-pthreads-win32=2.9.1=hfa6e2cd_3
-py-cpuinfo=9.0.0=pyhd8ed1ab_0
-pycparser=2.22=pyhd8ed1ab_0
-pyparsing=3.1.2=pyhd8ed1ab_0
-pyqt=5.15.9=py312he09f080_5
-pyqt5-sip=12.12.2=py312h53d5487_5
-pysocks=1.7.1=pyh0701188_6
-pytables=3.9.2=py312h3d8899c_3
-python=3.12.3=h2628c8c_0_cpython
-python-dateutil=2.9.0=pyhd8ed1ab_0
-python-dotenv=1.0.1=pypi_0
-python-tzdata=2024.1=pyhd8ed1ab_0
-python_abi=3.12=4_cp312
-pytz=2024.1=pyhd8ed1ab_0
-qhull=2020.2=hc790b64_5
-qt-main=5.15.8=h06adc49_22
-requests=2.32.3=pyhd8ed1ab_0
-s3transfer=0.10.2=pyhd8ed1ab_0
-scikit-learn=1.5.1=py312h816cc57_0
-scipy=1.14.0=py312h1f4e10d_1
-seaborn=0.13.2=hd8ed1ab_2
-seaborn-base=0.13.2=pyhd8ed1ab_2
-setuptools=70.3.0=pyhd8ed1ab_0
-sip=6.7.12=py312h53d5487_0
-six=1.16.0=pyh6c4a22f_0
-snappy=1.2.1=h23299a8_0
-statsmodels=0.14.2=py312h1a27103_0
-tbb=2021.12.0=hc790b64_3
-threadpoolctl=3.5.0=pyhc1e730c_0
-tk=8.6.13=h5226925_1
-toml=0.10.2=pyhd8ed1ab_0
-tomli=2.0.1=pyhd8ed1ab_0
-tornado=6.4.1=py312h4389bb4_0
-tzdata=2024a=h0c530f3_0
-ucrt=10.0.22621.0=h57928b3_0
-urllib3=2.2.2=pyhd8ed1ab_1
-vc=14.3=h8a93ad2_20
-vc14_runtime=14.40.33810=ha82c5b3_20
-vs2015_runtime=14.40.33810=h3bf8584_20
-wheel=0.43.0=pyhd8ed1ab_1
-win_inet_pton=1.1.0=pyhd8ed1ab_6
-xorg-libxau=1.0.11=hcd874cb_0
-xorg-libxdmcp=1.1.3=hcd874cb_0
-xz=5.2.6=h8d14728_0
-zlib-ng=2.2.1=he0c23c2_0
-zstandard=0.22.0=py312h7606c53_1
-zstd=1.5.6=h0ea2cb4_0
+boto3 @ file:///home/conda/feedstock_root/build_artifacts/boto3_1720860715036/work
+botocore @ file:///home/conda/feedstock_root/build_artifacts/botocore_1720830273431/work
+Brotli @ file:///D:/bld/brotli-split_1695989908365/work
+cached-property @ file:///home/conda/feedstock_root/build_artifacts/cached_property_1615209429212/work
+certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1720457958366/work/certifi
+cffi @ file:///D:/bld/cffi_1696001932509/work
+charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1698833585322/work
+contourpy @ file:///D:/bld/contourpy_1712429989625/work
+cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1696677705766/work
+fonttools @ file:///D:/bld/fonttools_1720359139472/work
+h2 @ file:///home/conda/feedstock_root/build_artifacts/h2_1634280454336/work
+h5py @ file:///D:/bld/h5py_1717665876336/work
+hpack==4.0.0
+hyperframe @ file:///home/conda/feedstock_root/build_artifacts/hyperframe_1619110129307/work
+idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1713279365350/work
+jmespath @ file:///home/conda/feedstock_root/build_artifacts/jmespath_1655568249366/work
+joblib @ file:///home/conda/feedstock_root/build_artifacts/joblib_1714665484399/work
+kiwisolver @ file:///D:/bld/kiwisolver_1695380118873/work
+matplotlib==3.9.1
+munkres==1.1.4
+numexpr @ file:///D:/bld/numexpr_1716812308797/work
+numpy @ file:///D:/bld/numpy_1707225519803/work/dist/numpy-1.26.4-cp312-cp312-win_amd64.whl#sha256=ffaa9485afb654c70a658c3ad4b7d2e60c60d8450d3779408d3a496564dc1d43
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1718189413536/work
+pandas @ file:///D:/bld/pandas_1715897834004/work
+patsy @ file:///home/conda/feedstock_root/build_artifacts/patsy_1704469236901/work
+pillow @ file:///D:/bld/pillow_1719903666313/work
+ply @ file:///home/conda/feedstock_root/build_artifacts/ply_1712242996588/work
+py-cpuinfo @ file:///home/conda/feedstock_root/build_artifacts/py-cpuinfo_1666774466606/work
+pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1711811537435/work
+pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1709721012883/work
+PyQt5==5.15.9
+PyQt5-sip @ file:///D:/bld/pyqt-split_1695418044683/work/pyqt_sip
+PySocks @ file:///D:/bld/pysocks_1661604991356/work
+python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1709299778482/work
+python-dotenv @ file:///home/conda/feedstock_root/build_artifacts/python-dotenv-split_1706018097647/work
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1706886791323/work
+requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1717057054362/work
+s3transfer @ file:///home/conda/feedstock_root/build_artifacts/s3transfer_1719300139436/work
+scikit-learn @ file:///D:/bld/scikit-learn_1719998235406/work/dist/scikit_learn-1.5.1-cp312-cp312-win_amd64.whl#sha256=434afc5bf31388176549f3bb6bfc3bf723ad0c72f56f52bf444eda9a6ce9f909
+scipy @ file:///C:/bld/scipy-split_1720323148917/work/dist/scipy-1.14.0-cp312-cp312-win_amd64.whl#sha256=e20b20d2db7c6a625023e5d70ff9dae42c4e64408ca62acb9bdf3be2e836c5a8
+seaborn @ file:///home/conda/feedstock_root/build_artifacts/seaborn-split_1714494649443/work
+setuptools==70.3.0
+sip @ file:///D:/bld/sip_1697300573642/work
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
+statsmodels @ file:///D:/bld/statsmodels_1715941347455/work
+tables==3.9.2
+threadpoolctl @ file:///home/conda/feedstock_root/build_artifacts/threadpoolctl_1714400101435/work
+toml @ file:///home/conda/feedstock_root/build_artifacts/toml_1604308577558/work
+tomli @ file:///home/conda/feedstock_root/build_artifacts/tomli_1644342247877/work
+tornado @ file:///D:/bld/tornado_1717722831716/work
+tzdata @ file:///home/conda/feedstock_root/build_artifacts/python-tzdata_1707747584337/work
+urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1719391292974/work
+wheel==0.43.0
+win-inet-pton @ file:///D:/bld/win_inet_pton_1667051142467/work
+zstandard==0.22.0
