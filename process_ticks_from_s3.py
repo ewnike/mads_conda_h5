@@ -4,8 +4,8 @@ from io import StringIO
 
 import boto3  # pylint: disable=import-error
 import numpy as np  # pylint: disable=import-error
-import pandas as pd
-import tables
+import pandas as pd # pylint: disable=import-error
+import tables # pylint: disable=import-error
 from dotenv import load_dotenv  # pylint: disable=import-error
 
 from shared_types import tick_type  # pylint: disable=import-error

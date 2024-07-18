@@ -2,7 +2,7 @@
 Shared data types and functions for commodity processing.
 """
 
-import numpy as np
+import numpy as np # pylint: disable=import-error
 
 # Define the data type for bar data
 bar_type = np.dtype([

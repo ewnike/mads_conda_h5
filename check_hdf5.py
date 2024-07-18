@@ -5,6 +5,6 @@ to verify HDF5 installed
 and the version.
 """
 
-import h5py
+import h5py  # pylint: disable=import-error
 
 print(h5py.version.info)
