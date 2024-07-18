@@ -3,12 +3,12 @@ import os
 from io import StringIO
 
 import boto3
-import numpy as np
+import numpy as np # pylint: disable=import-error
 import pandas as pd
 import tables
 from dotenv import load_dotenv
 
-from shared_types import tick_type
+from shared_types import tick_type # pylint: disable=
 
 # Load environment variables from .env file
 load_dotenv()
