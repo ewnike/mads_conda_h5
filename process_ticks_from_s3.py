@@ -1,14 +1,14 @@
 import argparse
-import os  # pylint: disable=import-error
+import os
 from io import StringIO
 
-import boto3  # pylint: disable=import-error
-import numpy as np  # pylint: disable=import-error
-import pandas as pd # pylint: disable=import-error
-import tables # pylint: disable=import-error
-from dotenv import load_dotenv  # pylint: disable=import-error
+import boto3
+import numpy as np
+import pandas as pd
+import tables
+from dotenv import load_dotenv
 
-from shared_types import tick_type  # pylint: disable=import-error
+from shared_types import tick_type
 
 # Load environment variables from .env file
 load_dotenv()
@@ -102,7 +102,7 @@ def make_h5(sym, h5_filename=None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process tick data from S3.")
     parser.add_argument(
-        "--bucket", type=str, required=True, help="The name of the S3 bucket"
+        "--bucket", type=str, required=False, help="The name of the S3 bucket"
     )
     parser.add_argument(
         "--region",
@@ -112,8 +112,14 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    bucket_name = args.bucket
+    bucket_name = args.bucket or os.getenv("S3_BUCKET_NAME")
     region_name = args.region
+
+    if not bucket_name:
+        print(
+            "Error: S3 bucket name must be provided via --bucket or S3_BUCKET_NAME in .env file"
+        )
+        exit(1)
 
     s3_file_keys = {
         "Wheat": "WC.csv",
