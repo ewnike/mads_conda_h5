@@ -5,35 +5,33 @@ Shared data types and functions for commodity processing.
 import numpy as np
 
 # Define the data type for bar data
-bar_type = np.dtype(
-    [
-        ("date", "M8[D]"),
-        ("time", "m8[us]"),
-        ("open_p", "f8"),
-        ("high_p", "f8"),
-        ("low_p", "f8"),
-        ("close_p", "f8"),
-        ("per_vlm", "u8"),
-    ]
-)
+bar_type = np.dtype([
+    ('date', 'i8'),
+    ('time', 'i8'),
+    ('open_price', 'f8'),
+    ('high_price', 'f8'),
+    ('low_price', 'f8'),
+    ('close_price', 'f8'),
+    ('volume', 'i8')
+])
 
 # Define the data type for HDF5 bar data
 h5_bar_type = np.dtype(
     [
         ("date", "i8"),
         ("time", "i8"),
-        ("open_p", "f8"),
-        ("high_p", "f8"),
-        ("low_p", "f8"),
-        ("close_p", "f8"),
-        ("per_vlm", "u8"),
+        ("open_price", "f8"),
+        ("high_price", "f8"),
+        ("low_price", "f8"),
+        ("close_price", "f8"),
+        ("volume", "i8"),
     ]
 )
 
 # Define the data type for tick data
 tick_type = np.dtype(
     [
-        ("symbol", "S2"),
+        ("symbol", "S10"),
         ("date", "datetime64[ns]"),
         ("time", "timedelta64[ns]"),
         ("last_p", "float64"),
