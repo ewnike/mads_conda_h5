@@ -1,3 +1,9 @@
+"""
+This code reads tick data for commodity futures which is stored in AWS S3 Buckets.
+The data is then converted into numpy arrays and stored in
+pytables as in h5 format.
+"""
+
 import argparse
 import os
 from io import StringIO
