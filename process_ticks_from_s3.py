@@ -1,14 +1,14 @@
 import argparse
-import os
+import os  # pylint: disable=import-error
 from io import StringIO
 
-import boto3
-import numpy as np # pylint: disable=import-error
+import boto3  # pylint: disable=import-error
+import numpy as np  # pylint: disable=import-error
 import pandas as pd
 import tables
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # pylint: disable=import-error
 
-from shared_types import tick_type # pylint: disable=
+from shared_types import tick_type  # pylint: disable=import-error
 
 # Load environment variables from .env file
 load_dotenv()
