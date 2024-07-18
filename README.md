@@ -12,3 +12,5 @@ There are a few requirements in order to view this project. They are the followi
 2. You will need to install HDF5. This project uses version 1.14.4. https://www.hdfgroup.org/downloads/hdf5/
 3. To view your .h5 files, you will need HDF5 Viewer installed. https://www.hdfgroup.org/downloads/hdfview/
 4. Follow the requirements.txt in the repository to download the rest of the needed libraries.
+5. Once everything is installed, simply run this command from your command line, python process_ticks_from_s3.py.
+6. Use your HDF5 Viewer application to view the data as it is currently stored in your .h5 files.
